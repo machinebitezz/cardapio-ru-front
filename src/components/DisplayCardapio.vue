@@ -1,40 +1,10 @@
 <template>
   <div class="row q-col-gutter-sm q-pa-sm justify-center">
+    <div class="col-12 col-md-4">
+      <card-menu v-if="hoje <= 4 && hoje >= 0" class="fit" title="Hoje" :main="menu[hoje]" :sides="filteredMenu[hoje]" />
+    </div>
     <div class="col-12 col-md-4" :key="index" v-for="prato, index in menu">
-      <q-card class="fit">
-        <q-card-section class="text-h5">
-          {{ dias[index] }}
-        </q-card-section>
-
-        <q-separator />
-
-        <q-card-section>
-          <q-list bordered separator>
-            <q-item>
-              <q-item-section>
-                <q-item-label overline>Principal</q-item-label>
-                <q-item-label> {{ capitalize(prato.principal) }} </q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-item>
-              <q-item-section>
-                <q-item-label overline>Vegetariano</q-item-label>
-                <q-item-label> {{ capitalize(prato.vegetariano) }} </q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-item :key="index+acompIndex" v-for="acompanhamento, acompIndex in filteredMenu[index]">
-              <q-item-section>
-                <q-item-label>
-                  {{ capitalize(acompanhamento) }}
-                </q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
-
-        </q-card-section>
-      </q-card>
+      <card-menu class="fit" :title="dias[index]" :main="prato" :sides="filteredMenu[index]" />
     </div>
   </div>
 </template>
@@ -42,16 +12,16 @@
 <script>
 // eslint-disable-next-line no-unused-vars
 import { ref, defineComponent, computed } from 'vue'
+import CardMenu from './CardMenu.vue'
 
 export default defineComponent({
   name: 'DisplayCardapio',
   props: ['menu'],
+  components: {
+    CardMenu
+  },
   setup (props) {
     const dias = ref(['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira'])
-
-    function capitalize (string) {
-      return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
-    }
 
     const filteredMenu = computed(() => {
       const filtered = []
@@ -69,10 +39,12 @@ export default defineComponent({
       return filtered
     })
 
+    const hoje = new Date().getDay() - 1
+
     return {
+      hoje,
       dias,
-      filteredMenu,
-      capitalize
+      filteredMenu
     }
   }
 })

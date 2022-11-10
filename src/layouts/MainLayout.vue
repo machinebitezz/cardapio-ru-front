@@ -4,7 +4,10 @@
     <q-header elevated class="bg-primary text-white q-pt-xs" height-hint="98">
       <q-toolbar>
         <q-toolbar-title>
-          Cardápio
+          <q-avatar>
+            <q-icon name="mdi-food-drumstick" size="md" color="white" />
+          </q-avatar>
+          Cardápio RU UFPA
         </q-toolbar-title>
 
         <q-btn :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'" round flat @click="$q.dark.toggle" />
@@ -22,7 +25,7 @@
 
     <q-footer elevated class="bg-grey-8 text-white">
       <q-toolbar class="flex flex-center column">
-        <div>Desenvolvido por <a href="https://github.com/machinebitezz">@machinebitezz</a>, com amor &hearts;</div>
+        <div>Desenvolvido por <a target="_blank" href="https://linktree.com/machinebitezz">@machinebitezz</a>, com amor &hearts;</div>
         <div style="font-size: 10px; opacity: 0.7">Este site não possui afiliação ao RU UFPA ou à UFPA. Gustavo Rodrigues &copy; 2022</div>
       </q-toolbar>
     </q-footer>
@@ -45,7 +48,6 @@ export default defineComponent({
     onMounted(async () => {
       $q.loading.show()
       const menu = (await axios.get('https://4i7g44.deta.dev/')).data.cardapio
-      // console.log(menu)
       const cardapio = {
         almoco: [],
         jantar: []
