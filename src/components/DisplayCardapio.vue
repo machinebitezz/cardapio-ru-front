@@ -1,5 +1,5 @@
 <template>
-  <div class="row q-col-gutter-sm q-pa-sm justify-center">
+  <div v-if="menu" class="row q-col-gutter-sm q-pa-sm justify-center">
     <div class="col-12 col-md-4">
       <card-menu v-if="hoje <= 4 && hoje >= 0" class="fit" title="Hoje" :main="menu[hoje]" :sides="filteredMenu[hoje]" />
     </div>

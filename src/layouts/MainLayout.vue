@@ -26,6 +26,7 @@
       <q-toolbar class="flex flex-center column">
         <div>Desenvolvido por <a target="_blank" href="https://linktree.com/machinebitezz">@machinebitezz</a>, com amor &hearts;</div>
         <div style="font-size: 10px; opacity: 0.7">Este site não possui afiliação ao RU UFPA ou à UFPA. Gustavo Rodrigues &copy; 2022</div>
+        <div style="font-size: 10px; opacity: 0.7">Powered by <a href="deta.sh">Deta</a> and <a href="vercel.com">Vercel</a></div>
       </q-toolbar>
     </q-footer>
 
@@ -46,7 +47,7 @@ export default defineComponent({
 
     onMounted(async () => {
       $q.loading.show()
-      const menu = (await axios.get('https://4i7g44.deta.dev/')).data.cardapio
+      const menu = (await axios.get('https://cardapioufpa.deta.dev/')).data.cardapio
       const cardapio = {
         almoco: [],
         jantar: []
