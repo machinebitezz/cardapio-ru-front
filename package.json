@@ -1,7 +1,7 @@
 {
   "name": "cardapio-ru",
   "version": "0.0.1",
-  "description": "PWA para verificar o cardápio do RU UFPA",
+  "description": "App para verificar o cardápio do RU UFPA de maneira rápida e eficiente",
   "productName": "O que tem no RU?",
   "author": "Gustavo Rodrigues <gustavo.hwmanz@gmail.com>",
   "private": true,
@@ -14,7 +14,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "pinia": "^2.0.11",
-    "quasar": "^2.6.0",
+    "quasar": "^2.10.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0"
   },

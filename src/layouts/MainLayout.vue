@@ -1,6 +1,5 @@
 <template>
   <q-layout view="hHh lpR fFf">
-
     <q-header elevated class="bg-primary text-white q-pt-xs" height-hint="98">
       <q-toolbar>
         <q-toolbar-title>
@@ -52,8 +51,6 @@ export default defineComponent({
         almoco: [],
         jantar: []
       }
-
-      console.log(menu)
       for (let i = 0; i < 10; i++) {
         if (menu[`cardapio${i}`].horaInicio === '11:00') {
           cardapio.almoco.push(menu[`cardapio${i}`])
