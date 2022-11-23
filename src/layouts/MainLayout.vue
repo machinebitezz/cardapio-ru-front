@@ -26,7 +26,7 @@
       <q-toolbar class="flex flex-center column">
         <div>Desenvolvido por <a target="_blank" href="https://linktree.com/machinebitezz">@machinebitezz</a>, com amor &hearts;</div>
         <div style="font-size: 10px; opacity: 0.7">Este site não possui afiliação ao RU UFPA ou à UFPA. Gustavo Rodrigues &copy; 2022</div>
-        <div style="font-size: 10px; opacity: 0.7">Powered by <a href="http://deta.sh">Deta</a> and <a href="http://vercel.com">Vercel</a></div>
+        <div style="font-size: 10px; opacity: 0.7">Powered by <a target="_blank" href="http://deta.sh">Deta</a> and <a target="_blank" href="http://vercel.com">Vercel</a></div>
       </q-toolbar>
     </q-footer>
 
@@ -40,7 +40,6 @@ import axios from 'axios'
 
 export default defineComponent({
   name: 'MainLayout',
-
   setup () {
     const store = useStore()
     const $q = useQuasar()
