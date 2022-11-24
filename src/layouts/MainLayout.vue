@@ -10,6 +10,7 @@
         </q-toolbar-title>
 
         <q-btn :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'" round flat @click="$q.dark.toggle" />
+        <q-btn icon="help" round flat @click="createDialog" />
       </q-toolbar>
 
       <q-tabs align="left">
@@ -26,7 +27,6 @@
       <q-toolbar class="flex flex-center column">
         <div>Desenvolvido por <a target="_blank" href="https://linktree.com/machinebitezz">@machinebitezz</a>, com amor &hearts;</div>
         <div style="font-size: 10px; opacity: 0.7">Este site não possui afiliação ao RU UFPA ou à UFPA. Gustavo Rodrigues &copy; 2022</div>
-        <div style="font-size: 10px; opacity: 0.7">Powered by <a target="_blank" href="http://deta.sh">Deta</a> and <a target="_blank" href="http://vercel.com">Vercel</a></div>
       </q-toolbar>
     </q-footer>
 
@@ -36,6 +36,7 @@
 import { defineComponent, onMounted } from 'vue'
 import { useStore } from '../stores/cardapio.js'
 import { useQuasar } from 'quasar'
+import DialogSobre from '../components/DialogSobre.vue'
 import axios from 'axios'
 
 export default defineComponent({
@@ -63,8 +64,15 @@ export default defineComponent({
       $q.loading.hide()
     })
 
+    function createDialog () {
+      $q.dialog({
+        component: DialogSobre
+      })
+    }
+
     return {
-      store: store.cardapio
+      store: store.cardapio,
+      createDialog
     }
   }
 })
