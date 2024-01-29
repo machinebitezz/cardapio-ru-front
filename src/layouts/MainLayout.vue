@@ -47,7 +47,7 @@ export default defineComponent({
 
     onMounted(async () => {
       $q.loading.show()
-      const menu = (await axios.get('https://cardapioufpa.deta.dev/')).data.cardapio
+      const menu = (await axios.get('https://cardapioruback-1-a4608481.deta.app/')).data.cardapio
       const cardapio = {
         almoco: [],
         jantar: []
